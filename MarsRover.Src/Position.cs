@@ -13,10 +13,10 @@ namespace MarsRover.Src
             }
             Xaxis = int.Parse(positions[0]);
             Yaxis = int.Parse(positions[1]);
-            CardinalPosition = positions[2];
+            CardinalPosition = new Cardinality(positions[2]);
         }
 
-        public string CardinalPosition { get; private set; }
+        public Cardinality CardinalPosition { get; private set; }
 
         public int Yaxis { get; private set; }
 
@@ -24,7 +24,7 @@ namespace MarsRover.Src
 
         public void Move()
         {
-            switch (CardinalPosition)
+            switch (CardinalPosition.GetValue())
             {
                 case "N":
                     Yaxis += 1;
@@ -45,40 +45,18 @@ namespace MarsRover.Src
 
         public void TurnLeft()
         {
-            switch (CardinalPosition)
-            {
-                case "N":
-                    CardinalPosition = "W";
-                    break;
-                case "E":
-                    CardinalPosition = "N";
-                    break;
-                case "W":
-                    CardinalPosition = "S";
-                    break;
-                case "S":
-                    CardinalPosition = "E";
-                    break;
-            }
+            TurnLeftFromPosition();
+        }
+
+        private void TurnLeftFromPosition()
+        {
+            CardinalPosition.Left();
         }
 
         public void TurnRight()
         {
-            switch (CardinalPosition)
-            {
-                case "N":
-                    CardinalPosition = "E";
-                    break;
-                case "E":
-                    CardinalPosition = "S";
-                    break;
-                case "S":
-                    CardinalPosition = "W";
-                    break;
-                case "W":
-                    CardinalPosition = "N";
-                    break;
-            }
+            CardinalPosition.Right();
+
         }
     }
-}
+    }
