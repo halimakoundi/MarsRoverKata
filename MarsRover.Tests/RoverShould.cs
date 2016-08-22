@@ -42,17 +42,18 @@ namespace MarsRover.Tests
             var position = rover.Execute(instructions);
             Assert.That(position, Is.EqualTo("1 0 E"));
         }
-        [Test]
-        public void move_west_once_for_command_M_and_starts_00W()
+        [TestCase("0 0 N", "0 1 N", "M")]
+        [TestCase("0 0 E", "1 0 E", "M")]
+        [TestCase("0 0 W", "-1 0 W", "M")]
+        public void move_west_once_for_command_M_and_starts_00W(string initialPosition, string expected, string instructions)
         {
-            var instructions = "M";
             _console.ReadLine("Please, enter the Rover's initial position coordinates: ")
-                .Returns("0 0 W");
+                .Returns(initialPosition);
 
             var rover = RoverFactory.New(_plateau, _console);
 
             var position = rover.Execute(instructions);
-            Assert.That(position, Is.EqualTo("-1 0 W"));
+            Assert.That(position, Is.EqualTo(expected));
         }
     }
 }
