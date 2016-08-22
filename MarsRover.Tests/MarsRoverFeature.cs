@@ -1,6 +1,5 @@
 ﻿using MarsRover.Src;
 using NSubstitute;
-using NSubstitute.Core.Arguments;
 using NUnit.Framework;
 
 namespace MarsRover.Tests

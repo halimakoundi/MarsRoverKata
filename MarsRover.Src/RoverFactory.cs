@@ -10,12 +10,4 @@
             return rover;
         }
     }
-
-    public class RoverExplorer
-    {
-        public static void Handle(Rover rover,UIPrinter uiPrinter)
-        {
-            uiPrinter.ReadLine("Please, enter the series of exploration instructions: ");
-        }
-    }
 }

@@ -1,3 +1,5 @@
+using System;
+
 namespace MarsRover.Src
 {
     public class Rover
@@ -9,8 +11,9 @@ namespace MarsRover.Src
             _position = position;
         }
 
-        public void Execute(string instructions)
+        public string Execute(string instructions)
         {
+            throw new NotImplementedException();
         }
     }
 }
