@@ -43,8 +43,10 @@
     <Compile Include="CommandParser.cs" />
     <Compile Include="MoveCommand.cs" />
     <Compile Include="Plateau.cs" />
+    <Compile Include="Position.cs" />
     <Compile Include="Rover.cs" />
     <Compile Include="RoverCommand.cs" />
+    <Compile Include="RoverCommands.cs" />
     <Compile Include="RoverExplorer.cs" />
     <Compile Include="RoverFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

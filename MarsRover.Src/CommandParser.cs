@@ -12,6 +12,9 @@ namespace MarsRover.Src
                     case 'M':
                         commands.Add(new MoveCommand());
                         break;
+                    case 'L':
+                        commands.Add(new TurnLeftCommand());
+                        break;
                 }
             }
             return commands;

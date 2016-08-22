@@ -18,34 +18,28 @@ namespace MarsRover.Tests
             _plateau = Substitute.For<Plateau>(_console);
         }
 
-        [Test]
-        public void move_up_once_for_command_M_and_starts_00N()
+        [TestCase("0 0 N", "0 1 N", "M")]
+        [TestCase("0 0 E", "1 0 E", "M")]
+        [TestCase("0 0 W", "-1 0 W", "M")]
+        [TestCase("0 0 S", "0 -1 S", "M")]
+        public void move_to_right_position_for_given_command_given_initial_position
+                    (string initialPosition, string expected, string instructions)
         {
-            var instructions    = "M";
-            _console.ReadLine("Please, enter the Rover's initial position coordinates: ").Returns("0 0 N");
-
-            var rover = RoverFactory.New(_plateau, _console);
-
-            var position    = rover.Execute(instructions);
-            Assert.That(position, Is.EqualTo("0 1 N"));
-        }
-
-        [Test]
-        public void move_east_once_for_command_M_and_starts_00E()
-        {
-            var instructions = "M";
             _console.ReadLine("Please, enter the Rover's initial position coordinates: ")
-                .Returns("0 0 E");
+                .Returns(initialPosition);
 
             var rover = RoverFactory.New(_plateau, _console);
 
             var position = rover.Execute(instructions);
-            Assert.That(position, Is.EqualTo("1 0 E"));
+            Assert.That(position, Is.EqualTo(expected));
         }
-        [TestCase("0 0 N", "0 1 N", "M")]
-        [TestCase("0 0 E", "1 0 E", "M")]
-        [TestCase("0 0 W", "-1 0 W", "M")]
-        public void move_west_once_for_command_M_and_starts_00W(string initialPosition, string expected, string instructions)
+
+        [TestCase("0 0 N", "0 0 W", "L")]
+        [TestCase("0 0 E", "0 0 N", "L")]
+        [TestCase("0 0 W", "0 0 S", "L")]
+        [TestCase("0 0 S", "0 0 E", "L")]
+        public void face_the_right_direction_for_given_command_given_initial_facing
+                    (string initialPosition, string expected, string instructions)
         {
             _console.ReadLine("Please, enter the Rover's initial position coordinates: ")
                 .Returns(initialPosition);
