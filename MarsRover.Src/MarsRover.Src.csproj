@@ -40,8 +40,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CommandParser.cs" />
+    <Compile Include="MoveCommand.cs" />
     <Compile Include="Plateau.cs" />
     <Compile Include="Rover.cs" />
+    <Compile Include="RoverCommand.cs" />
     <Compile Include="RoverExplorer.cs" />
     <Compile Include="RoverFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

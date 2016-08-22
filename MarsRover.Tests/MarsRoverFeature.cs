@@ -22,13 +22,19 @@ namespace MarsRover.Tests
         [Test]
         public void Feature1()
         {
-            _rover = RoverFactory.New(_plateau, _console);
             var rover = _rover;
             _instructions = "LMLMLMLMM";
-            
-            _console.ReadLine("").Returns("5 5", "1 2 N",_instructions);
 
-            rover.Execute(_instructions);
+            _console.ReadLine("Please, enter the Upper-Right coordinates of the plateau: ")
+                    .Returns("5 5");
+            _console.ReadLine("Please, enter the Rover's initial position coordinates: ")
+                    .Returns("1 2 N");
+            _console.ReadLine("Please, enter the series of exploration instructions: ")
+                    .Returns(_instructions);
+
+            _rover = RoverFactory.New(_plateau, _console);
+
+            RoverExplorer.Handle(rover, _console);
 
             Received.InOrder(() =>
             {
