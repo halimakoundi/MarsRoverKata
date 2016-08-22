@@ -1,57 +1,83 @@
+using System;
+using System.ComponentModel;
+using System.Reflection;
+
 namespace MarsRover.Src
 {
     public class Cardinality
     {
         private string _value;
+        private Cardinalities _cardinalities;
 
         public Cardinality(string value)
         {
-            _value = value;
+            _cardinalities = GetCardinalityFromDescription(value);
         }
 
         public void Left()
         {
-            switch (_value)
+            if ((int)_cardinalities > 0)
             {
-                case "N":
-                    _value = "W";
-                    break;
-                case "E":
-                    _value = "N";
-                    break;
-                case "W":
-                    _value = "S";
-                    break;
-                case "S":
-                    _value = "E";
-                    break;
+                _cardinalities -= 1;
+            }
+            else
+            {
+                _cardinalities = Cardinalities.West;
             }
         }
 
         public override string ToString()
         {
-            return $"{_value}";
+            return $"{Cardinality.GetEnumDescription(_cardinalities)}";
         }
 
         public void Right()
         {
-            switch (_value)
+            if ((int)_cardinalities < 3)
             {
-                case "N":
-                    _value = "E";
-                    break;
-                case "E":
-                    _value = "S";
-                    break;
-                case "S":
-                    _value = "W";
-                    break;
-                case "W":
-                    _value = "N";
-                    break;
+                _cardinalities += 1;
+            }
+            else
+            {
+                _cardinalities = 0;
             }
         }
 
-        public string GetValue() => _value;
+        public string GetValue() => GetEnumDescription(_cardinalities);
+
+        public static string GetEnumDescription(Enum value)
+        {
+            FieldInfo fi = value.GetType().GetField(value.ToString());
+
+            DescriptionAttribute[] attributes =
+                (DescriptionAttribute[])fi.GetCustomAttributes(
+                typeof(DescriptionAttribute),
+                false);
+
+            if (attributes.Length > 0)
+                return attributes[0].Description;
+            else
+                return value.ToString();
+        }
+
+        private Cardinalities GetCardinalityFromDescription(string description)
+        {
+            if (description == "N")
+            {
+                return Cardinalities.North;
+            }
+            else if (description == "E")
+            {
+                return Cardinalities.East;
+            }
+            else if (description == "W")
+            {
+                return Cardinalities.West;
+            }
+            else
+            {
+                return Cardinalities.South;
+            }
+        }
     }
 }
