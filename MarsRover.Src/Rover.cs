@@ -53,6 +53,9 @@ namespace MarsRover.Src
                 case "E":
                     Xaxis += 1;
                     break;
+                case "W":
+                    Xaxis -= 1;
+                    break;
             }
         }
 
