@@ -50,6 +50,8 @@
     <Compile Include="RoverExplorer.cs" />
     <Compile Include="RoverFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TurnLeftCommand.cs" />
+    <Compile Include="TurnRightCommand.cs" />
     <Compile Include="UIPrinter.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -22,7 +22,6 @@ namespace MarsRover.Tests
         [Test]
         public void Feature1()
         {
-            var rover = _rover;
             _instructions = "LMLMLMLMM";
 
             _console.ReadLine("Please, enter the Upper-Right coordinates of the plateau: ")
@@ -34,7 +33,7 @@ namespace MarsRover.Tests
 
             _rover = RoverFactory.New(_plateau, _console);
 
-            RoverExplorer.Handle(rover, _console);
+            RoverExplorer.Handle(_rover, _console);
 
             Received.InOrder(() =>
             {

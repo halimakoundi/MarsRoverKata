@@ -61,5 +61,24 @@ namespace MarsRover.Src
                     break;
             }
         }
+
+        public void TurnRight()
+        {
+            switch (CardinalPosition)
+            {
+                case "N":
+                    CardinalPosition = "E";
+                    break;
+                case "E":
+                    CardinalPosition = "S";
+                    break;
+                case "S":
+                    CardinalPosition = "W";
+                    break;
+                case "W":
+                    CardinalPosition = "N";
+                    break;
+            }
+        }
     }
 }

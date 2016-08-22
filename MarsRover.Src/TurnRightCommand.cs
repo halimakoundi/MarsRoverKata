@@ -1,10 +1,10 @@
 namespace MarsRover.Src
 {
-    public class MoveCommand : RoverCommand
+    public class TurnRightCommand : RoverCommand
     {
         public void ApplyTo(Position position)
         {
-            position.Move();
+            position.TurnRight();
         }
     }
 }
