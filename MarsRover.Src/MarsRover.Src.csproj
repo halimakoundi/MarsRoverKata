@@ -49,7 +49,7 @@
     <Compile Include="Rover.cs" />
     <Compile Include="IRoverCommand.cs" />
     <Compile Include="RoverCommands.cs" />
-    <Compile Include="RoverExplorer.cs" />
+    <Compile Include="RoverControlSystem.cs" />
     <Compile Include="RoverFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TurnLeftCommand.cs" />

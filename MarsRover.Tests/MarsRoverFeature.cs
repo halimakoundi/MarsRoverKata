@@ -14,12 +14,14 @@ namespace MarsRover.Tests
         private string _newPosition;
         private string _initialPosition;
         private string _plateauUpperRight;
+        private CommandParser _parser;
 
         [SetUp]
         public void SetUp()
         {
             _console = Substitute.For<UIPrinter>();
             _plateau = Substitute.For<Plateau>(_console);
+            _parser = new CommandParser();
         }
 
         [Test]
@@ -40,7 +42,8 @@ namespace MarsRover.Tests
             _rover = RoverFactory.New(_console);
             var instructions = _console.ReadLine("Please, enter the series of exploration instructions: ");
 
-            RoverExplorer.Handle(_rover, _console, CommandParser.Parse(instructions));
+            var roverControlSystem  = new RoverControlSystem(_rover, _console,_parser);
+            roverControlSystem.Handle( instructions);
 
             Received.InOrder(() =>
             {

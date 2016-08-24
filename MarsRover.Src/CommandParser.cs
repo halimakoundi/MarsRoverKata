@@ -4,7 +4,7 @@ namespace MarsRover.Src
 {
     public class CommandParser
     {
-        public static RoverCommands Parse(string instructions)
+        public RoverCommands Parse(string instructions)
         {
             var commands = new RoverCommands();
             instructions.ToList().ForEach(

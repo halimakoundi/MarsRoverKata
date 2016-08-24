@@ -8,11 +8,14 @@ namespace MarsRover.Tests
     class RoverShould
     {
         private UIPrinter _console;
+        private CommandParser _parser;
+        private Rover _rover;
 
         [SetUp]
         public void SetUp()
         {
             _console = Substitute.For<UIPrinter>();
+            _parser = new CommandParser();
         }
 
         [TestCase("0 0 N", "0 1 N", "M")]
@@ -25,9 +28,9 @@ namespace MarsRover.Tests
             _console.ReadLine("Please, enter the Rover's initial position coordinates: ")
                 .Returns(initialPosition);
 
-            var rover = RoverFactory.New(_console);
+            _rover = RoverFactory.New(_console);
 
-            var position = rover.Execute(CommandParser.Parse(instructions));
+            var position = _rover.Execute(_parser.Parse(instructions));
             Assert.That(position, Is.EqualTo(expected));
         }
 
@@ -41,9 +44,9 @@ namespace MarsRover.Tests
             _console.ReadLine("Please, enter the Rover's initial position coordinates: ")
                 .Returns(initialPosition);
 
-            var rover = RoverFactory.New(_console);
+            _rover = RoverFactory.New(_console);
 
-            var position = rover.Execute(CommandParser.Parse(instructions));
+            var position = _rover.Execute(_parser.Parse(instructions));
             Assert.That(position, Is.EqualTo(expected));
         }
 
@@ -57,9 +60,9 @@ namespace MarsRover.Tests
             _console.ReadLine("Please, enter the Rover's initial position coordinates: ")
                 .Returns(initialPosition);
 
-            var rover = RoverFactory.New(_console);
+            _rover = RoverFactory.New(_console);
 
-            var position = rover.Execute(CommandParser.Parse(instructions));
+            var position = _rover.Execute(_parser.Parse(instructions));
             Assert.That(position, Is.EqualTo(expected));
         }
     }
