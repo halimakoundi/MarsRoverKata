@@ -9,9 +9,8 @@ namespace MarsRover.Src
             _position.Parse(position);
         }
 
-        public string Execute(string instructions)
+        public string Execute(RoverCommands commands)
         {
-            var commands = CommandParser.Parse(instructions);
             foreach (var command in commands)
             {
                 command.ApplyTo(_position);

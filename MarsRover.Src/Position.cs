@@ -27,18 +27,38 @@ namespace MarsRover.Src
             switch (CardinalPosition.GetValue())
             {
                 case "N":
-                    Yaxis += 1;
+                    MoveUp();
                     break;
                 case "E":
-                    Xaxis += 1;
+                    MoveRight();
                     break;
                 case "W":
-                    Xaxis -= 1;
+                    MoveLeft();
                     break;
                 case "S":
-                    Yaxis -= 1;
+                    MoveDown();
                     break;
             }
+        }
+
+        private void MoveDown()
+        {
+            Yaxis -= 1;
+        }
+
+        private void MoveLeft()
+        {
+            Xaxis -= 1;
+        }
+
+        private void MoveRight()
+        {
+            Xaxis += 1;
+        }
+
+        private void MoveUp()
+        {
+            Yaxis += 1;
         }
 
         public override string ToString() => $"{Xaxis} {Yaxis} {CardinalPosition}";

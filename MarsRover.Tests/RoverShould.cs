@@ -30,7 +30,7 @@ namespace MarsRover.Tests
 
             var rover = RoverFactory.New(_plateau, _console);
 
-            var position = rover.Execute(instructions);
+            var position = rover.Execute(CommandParser.Parse(instructions));
             Assert.That(position, Is.EqualTo(expected));
         }
 
@@ -46,7 +46,7 @@ namespace MarsRover.Tests
 
             var rover = RoverFactory.New(_plateau, _console);
 
-            var position = rover.Execute(instructions);
+            var position = rover.Execute(CommandParser.Parse(instructions));
             Assert.That(position, Is.EqualTo(expected));
         }
 
@@ -62,7 +62,7 @@ namespace MarsRover.Tests
 
             var rover = RoverFactory.New(_plateau, _console);
 
-            var position = rover.Execute(instructions);
+            var position = rover.Execute(CommandParser.Parse(instructions));
             Assert.That(position, Is.EqualTo(expected));
         }
     }

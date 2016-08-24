@@ -2,10 +2,9 @@ namespace MarsRover.Src
 {
     public class RoverExplorer
     {
-        public static void Handle(Rover rover,UIPrinter uiPrinter)
+        public static void Handle(Rover rover,UIPrinter uiPrinter, RoverCommands commands)
         {
-            var instructions = uiPrinter.ReadLine("Please, enter the series of exploration instructions: ");
-            var newPosition = rover.Execute(instructions);
+            var newPosition = rover.Execute(commands);
             uiPrinter.WriteLine(newPosition);
         }
     }

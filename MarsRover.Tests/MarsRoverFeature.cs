@@ -32,8 +32,9 @@ namespace MarsRover.Tests
                     .Returns(_instructions);
 
             _rover = RoverFactory.New(_plateau, _console);
+            var instructions = _console.ReadLine("Please, enter the series of exploration instructions: ");
 
-            RoverExplorer.Handle(_rover, _console);
+            RoverExplorer.Handle(_rover, _console, CommandParser.Parse(instructions));
 
             Received.InOrder(() =>
             {
