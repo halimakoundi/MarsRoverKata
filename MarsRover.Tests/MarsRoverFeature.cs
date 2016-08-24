@@ -25,7 +25,7 @@ namespace MarsRover.Tests
         }
 
         [Test]
-        public void Feature1()
+        public void rover_control_system_that_makes_the_rover_move_and_turn()
         {
             _instructions = "LMLMLMLMM";
             _plateauUpperRight = "5 5";
