@@ -4,6 +4,9 @@ namespace MarsRover.Src
 {
     public class Position
     {
+        private int _yaxis;
+        private int _xaxis;
+
         public void Parse(string position)
         {
             var positions = position.Split(' ');
@@ -11,16 +14,12 @@ namespace MarsRover.Src
             {
                 throw new Exception("Invalid coordinates provided.");
             }
-            Xaxis = int.Parse(positions[0]);
-            Yaxis = int.Parse(positions[1]);
+            _xaxis = int.Parse(positions[0]);
+            _yaxis = int.Parse(positions[1]);
             CardinalPosition = new Cardinality(positions[2]);
         }
 
-        public Cardinality CardinalPosition { get; private set; }
-
-        public int Yaxis { get; private set; }
-
-        public int Xaxis { get; private set; }
+        private Cardinality CardinalPosition { get; set; }
 
         public void Move()
         {
@@ -41,28 +40,6 @@ namespace MarsRover.Src
             }
         }
 
-        private void MoveDown()
-        {
-            Yaxis -= 1;
-        }
-
-        private void MoveLeft()
-        {
-            Xaxis -= 1;
-        }
-
-        private void MoveRight()
-        {
-            Xaxis += 1;
-        }
-
-        private void MoveUp()
-        {
-            Yaxis += 1;
-        }
-
-        public override string ToString() => $"{Xaxis} {Yaxis} {CardinalPosition}";
-
         public void TurnLeft()
         {
             CardinalPosition.Left();
@@ -73,5 +50,27 @@ namespace MarsRover.Src
             CardinalPosition.Right();
 
         }
+
+        private void MoveDown()
+        {
+            _yaxis = _yaxis - 1;
+        }
+
+        private void MoveLeft()
+        {
+            _xaxis = _xaxis - 1;
+        }
+
+        private void MoveRight()
+        {
+            _xaxis = _xaxis + 1;
+        }
+
+        private void MoveUp()
+        {
+            _yaxis = _yaxis + 1;
+        }
+
+        public override string ToString() => $"{_xaxis} {_yaxis} {CardinalPosition}";
     }
 }
