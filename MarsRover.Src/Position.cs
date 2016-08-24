@@ -4,13 +4,18 @@ namespace MarsRover.Src
     {
         private int _yaxis;
         private int _xaxis;
-        private readonly Cardinality _cardinalPosition;
+        private CardinalPosition _cardinalPosition;
 
         public Position(string position)
         {
             var positions = Parse(position);
             SetAxis(positions);
-            _cardinalPosition = new Cardinality(positions[2]);
+            SetCardinalPosition(positions);
+        }
+
+        private void SetCardinalPosition(string[] positions)
+        {
+            _cardinalPosition = new CardinalPosition(positions[2]);
         }
 
         private void SetAxis(string[] positions)
@@ -29,16 +34,16 @@ namespace MarsRover.Src
         {
             switch (_cardinalPosition.GetValue())
             {
-                case "N":
+                case Cardinality.N:
                     MoveUp();
                     break;
-                case "E":
+                case Cardinality.E:
                     MoveRight();
                     break;
-                case "W":
+                case Cardinality.W:
                     MoveLeft();
                     break;
-                case "S":
+                case Cardinality.S:
                     MoveDown();
                     break;
             }

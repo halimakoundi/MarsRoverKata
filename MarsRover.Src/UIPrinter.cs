@@ -3,6 +3,6 @@
     public interface UIPrinter
     {
         string ReadLine(string message);
-        void WriteLine(string empty);
+        void WriteLine(string message);
     }
 }

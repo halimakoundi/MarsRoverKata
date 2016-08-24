@@ -40,8 +40,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Cardinalities.cs" />
     <Compile Include="Cardinality.cs" />
+    <Compile Include="CardinalPosition.cs" />
     <Compile Include="CommandParser.cs" />
     <Compile Include="MoveCommand.cs" />
     <Compile Include="Plateau.cs" />

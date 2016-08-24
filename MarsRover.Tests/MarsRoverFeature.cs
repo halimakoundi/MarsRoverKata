@@ -11,6 +11,9 @@ namespace MarsRover.Tests
         private Plateau _plateau;
         private Rover _rover;
         private UIPrinter _console;
+        private string _newPosition;
+        private string _initialPosition;
+        private string _plateauUpperRight;
 
         [SetUp]
         public void SetUp()
@@ -23,15 +26,18 @@ namespace MarsRover.Tests
         public void Feature1()
         {
             _instructions = "LMLMLMLMM";
+            _plateauUpperRight = "5 5";
+            _initialPosition = "1 2 N";
+            _newPosition = "1 3 N";
 
             _console.ReadLine("Please, enter the Upper-Right coordinates of the plateau: ")
-                    .Returns("5 5");
+                .Returns(_plateauUpperRight);
             _console.ReadLine("Please, enter the Rover's initial position coordinates: ")
-                    .Returns("1 2 N");
+                    .Returns(_initialPosition);
             _console.ReadLine("Please, enter the series of exploration instructions: ")
                     .Returns(_instructions);
 
-            _rover = RoverFactory.New(_plateau, _console);
+            _rover = RoverFactory.New(_console);
             var instructions = _console.ReadLine("Please, enter the series of exploration instructions: ");
 
             RoverExplorer.Handle(_rover, _console, CommandParser.Parse(instructions));
@@ -41,7 +47,7 @@ namespace MarsRover.Tests
                 _console.ReadLine("Please, enter the Upper-Right coordinates of the plateau: ");
                 _console.ReadLine("Please, enter the Rover's initial position coordinates: ");
                 _console.ReadLine("Please, enter the series of exploration instructions: ");
-                _console.WriteLine("1 3 N");
+                _console.WriteLine(_newPosition);
             });
         }
     }

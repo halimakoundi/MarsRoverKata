@@ -1,6 +1,5 @@
 ﻿using MarsRover.Src;
 using NSubstitute;
-using NSubstitute.Exceptions;
 using NUnit.Framework;
 
 namespace MarsRover.Tests
@@ -9,13 +8,11 @@ namespace MarsRover.Tests
     class RoverShould
     {
         private UIPrinter _console;
-        private Plateau _plateau;
 
         [SetUp]
         public void SetUp()
         {
-            _console = Substitute.For<UIPrinter>(); ;
-            _plateau = Substitute.For<Plateau>(_console);
+            _console = Substitute.For<UIPrinter>();
         }
 
         [TestCase("0 0 N", "0 1 N", "M")]
@@ -28,7 +25,7 @@ namespace MarsRover.Tests
             _console.ReadLine("Please, enter the Rover's initial position coordinates: ")
                 .Returns(initialPosition);
 
-            var rover = RoverFactory.New(_plateau, _console);
+            var rover = RoverFactory.New(_console);
 
             var position = rover.Execute(CommandParser.Parse(instructions));
             Assert.That(position, Is.EqualTo(expected));
@@ -44,7 +41,7 @@ namespace MarsRover.Tests
             _console.ReadLine("Please, enter the Rover's initial position coordinates: ")
                 .Returns(initialPosition);
 
-            var rover = RoverFactory.New(_plateau, _console);
+            var rover = RoverFactory.New(_console);
 
             var position = rover.Execute(CommandParser.Parse(instructions));
             Assert.That(position, Is.EqualTo(expected));
@@ -60,7 +57,7 @@ namespace MarsRover.Tests
             _console.ReadLine("Please, enter the Rover's initial position coordinates: ")
                 .Returns(initialPosition);
 
-            var rover = RoverFactory.New(_plateau, _console);
+            var rover = RoverFactory.New(_console);
 
             var position = rover.Execute(CommandParser.Parse(instructions));
             Assert.That(position, Is.EqualTo(expected));
