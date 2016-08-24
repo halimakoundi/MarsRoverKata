@@ -42,7 +42,7 @@ namespace MarsRover.Src
 
         public string GetValue() => _cardinalities.ToString();
 
-        private Cardinalities GetCardinalityFromDescription(string description)
+        private static Cardinalities GetCardinalityFromDescription(string description)
         {
             return (Cardinalities)Enum.Parse(typeof(Cardinalities), description);
         }
