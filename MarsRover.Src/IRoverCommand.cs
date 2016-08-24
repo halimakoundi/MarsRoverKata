@@ -1,6 +1,6 @@
 namespace MarsRover.Src
 {
-    public interface RoverCommand
+    public interface IRoverCommand
     {
         void ApplyTo(Position position);
     }

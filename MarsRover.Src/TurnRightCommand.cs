@@ -1,6 +1,6 @@
 namespace MarsRover.Src
 {
-    public class TurnRightCommand : RoverCommand
+    public class TurnRightCommand : IRoverCommand
     {
         public void ApplyTo(Position position)
         {

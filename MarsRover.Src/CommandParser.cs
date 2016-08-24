@@ -12,7 +12,7 @@ namespace MarsRover.Src
             return commands;
         }
 
-        private static RoverCommand ParseCommand(char command)
+        private static IRoverCommand ParseCommand(char command)
         {
             switch (command)
             {
