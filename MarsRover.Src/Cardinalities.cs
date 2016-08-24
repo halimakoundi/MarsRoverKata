@@ -4,13 +4,13 @@ namespace MarsRover.Src
 {
     public enum Cardinalities
     {
-        [Description("N")]
-        North = 0,
-        [Description("E")]
-        East = 1,
-        [Description("S")]
-        South = 2,
-        [Description("W")]
-        West = 3
+        [Description("North")]
+        N = 0,
+        [Description("Eeast")]
+        E = 1,
+        [Description("South")]
+        S = 2,
+        [Description("West")]
+        W = 3
     }
 }

@@ -21,13 +21,13 @@ namespace MarsRover.Src
             }
             else
             {
-                _cardinalities = Cardinalities.West;
+                _cardinalities = Cardinalities.W;
             }
         }
 
         public override string ToString()
         {
-            return $"{Cardinality.GetEnumDescription(_cardinalities)}";
+            return $"{GetValue()}";
         }
 
         public void Right()
@@ -42,7 +42,7 @@ namespace MarsRover.Src
             }
         }
 
-        public string GetValue() => GetEnumDescription(_cardinalities);
+        public string GetValue() => _cardinalities.ToString();
 
         public static string GetEnumDescription(Enum value)
         {
@@ -61,22 +61,9 @@ namespace MarsRover.Src
 
         private Cardinalities GetCardinalityFromDescription(string description)
         {
-            if (description == "N")
-            {
-                return Cardinalities.North;
-            }
-            else if (description == "E")
-            {
-                return Cardinalities.East;
-            }
-            else if (description == "W")
-            {
-                return Cardinalities.West;
-            }
-            else
-            {
-                return Cardinalities.South;
-            }
+            Cardinalities cardinality;
+             Enum.TryParse(description,out cardinality);
+            return cardinality;
         }
     }
 }

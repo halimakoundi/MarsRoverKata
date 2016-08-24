@@ -6,7 +6,7 @@ namespace MarsRover.Src
     {
         private int _yaxis;
         private int _xaxis;
-        private Cardinality _cardinalPosition;
+        private readonly Cardinality _cardinalPosition;
 
         public Position(string position)
         {
