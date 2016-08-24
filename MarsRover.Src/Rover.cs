@@ -2,11 +2,11 @@ namespace MarsRover.Src
 {
     public class Rover
     {
-        private readonly Position _position = new Position();
+        private readonly Position _position;
 
         public Rover(string position)
         {
-            _position.Parse(position);
+            _position = new Position(position);
         }
 
         public string Execute(RoverCommands commands)
