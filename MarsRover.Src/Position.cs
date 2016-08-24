@@ -1,5 +1,3 @@
-using System;
-
 namespace MarsRover.Src
 {
     public class Position
@@ -61,22 +59,22 @@ namespace MarsRover.Src
 
         private void MoveDown()
         {
-            _yaxis = _yaxis - 1;
+            _yaxis -= 1;
         }
 
         private void MoveLeft()
         {
-            _xaxis = _xaxis - 1;
+            _xaxis -= 1;
         }
 
         private void MoveRight()
         {
-            _xaxis = _xaxis + 1;
+            _xaxis += 1;
         }
 
         private void MoveUp()
         {
-            _yaxis = _yaxis + 1;
+            _yaxis += 1;
         }
     }
 }
