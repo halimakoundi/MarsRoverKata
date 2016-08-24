@@ -20,18 +20,6 @@ namespace MarsRover.Src
             _cardinalPosition = new Cardinality(positions[2]);
         }
 
-        public void Parse(string position)
-        {
-            var positions = position.Split(' ');
-            if (positions.Length < 3)
-            {
-                throw new Exception("Invalid coordinates provided.");
-            }
-            _xaxis = int.Parse(positions[0]);
-            _yaxis = int.Parse(positions[1]);
-            _cardinalPosition = new Cardinality(positions[2]);
-        }
-
         public void Move()
         {
             switch (_cardinalPosition.GetValue())
