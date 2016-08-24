@@ -6,6 +6,7 @@ namespace MarsRover.Src
     {
         private int _yaxis;
         private int _xaxis;
+        private Cardinality _cardinalPosition;
 
         public void Parse(string position)
         {
@@ -16,14 +17,12 @@ namespace MarsRover.Src
             }
             _xaxis = int.Parse(positions[0]);
             _yaxis = int.Parse(positions[1]);
-            CardinalPosition = new Cardinality(positions[2]);
+            _cardinalPosition = new Cardinality(positions[2]);
         }
-
-        private Cardinality CardinalPosition { get; set; }
 
         public void Move()
         {
-            switch (CardinalPosition.GetValue())
+            switch (_cardinalPosition.GetValue())
             {
                 case "N":
                     MoveUp();
@@ -42,14 +41,16 @@ namespace MarsRover.Src
 
         public void TurnLeft()
         {
-            CardinalPosition.Left();
+            _cardinalPosition.Left();
         }
 
         public void TurnRight()
         {
-            CardinalPosition.Right();
+            _cardinalPosition.Right();
 
         }
+
+        public override string ToString() => $"{_xaxis} {_yaxis} {_cardinalPosition}";
 
         private void MoveDown()
         {
@@ -70,7 +71,5 @@ namespace MarsRover.Src
         {
             _yaxis = _yaxis + 1;
         }
-
-        public override string ToString() => $"{_xaxis} {_yaxis} {CardinalPosition}";
     }
 }
