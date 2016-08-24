@@ -23,11 +23,6 @@ namespace MarsRover.Src
             }
         }
 
-        public override string ToString()
-        {
-            return $"{GetValue()}";
-        }
-
         public void Right()
         {
             if ((int)_cardinalities < 3)
@@ -40,13 +35,16 @@ namespace MarsRover.Src
             }
         }
 
+        public override string ToString()
+        {
+            return $"{GetValue()}";
+        }
+
         public string GetValue() => _cardinalities.ToString();
 
         private Cardinalities GetCardinalityFromDescription(string description)
         {
-            Cardinalities cardinality;
-             Enum.TryParse(description,out cardinality);
-            return cardinality;
+            return (Cardinalities)Enum.Parse(typeof(Cardinalities), description);
         }
     }
 }

@@ -10,14 +10,25 @@ namespace MarsRover.Src
 
         public Position(string position)
         {
+            var positions = Parse(position);
+            SetAxis(positions);
+            _cardinalPosition = new Cardinality(positions[2]);
+        }
+
+        private void SetAxis(string[] positions)
+        {
+            _xaxis = int.Parse(positions[0]);
+            _yaxis = int.Parse(positions[1]);
+        }
+
+        private static string[] Parse(string position)
+        {
             var positions = position.Split(' ');
             if (positions.Length < 3)
             {
                 throw new Exception("Invalid coordinates provided.");
             }
-            _xaxis = int.Parse(positions[0]);
-            _yaxis = int.Parse(positions[1]);
-            _cardinalPosition = new Cardinality(positions[2]);
+            return positions;
         }
 
         public void Move()
