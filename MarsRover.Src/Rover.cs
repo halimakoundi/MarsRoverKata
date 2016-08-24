@@ -11,7 +11,7 @@ namespace MarsRover.Src
 
         public string Execute(RoverCommands commands)
         {
-            commands.ForEach(c => c.ApplyTo(_position));
+            commands.ExecuteCommands(_position);
             return _position.ToString();
         }
     }
