@@ -24,10 +24,6 @@ namespace MarsRover.Src
         private static string[] Parse(string position)
         {
             var positions = position.Split(' ');
-            if (positions.Length < 3)
-            {
-                throw new Exception("Invalid coordinates provided.");
-            }
             return positions;
         }
 
