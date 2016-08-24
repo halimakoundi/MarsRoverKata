@@ -1,5 +1,3 @@
-using System.Linq;
-
 namespace MarsRover.Src
 {
     public class Rover

@@ -1,3 +1,5 @@
+using System.Linq;
+
 namespace MarsRover.Src
 {
     public class CommandParser
@@ -5,22 +7,23 @@ namespace MarsRover.Src
         public static RoverCommands Parse(string instructions)
         {
             var commands = new RoverCommands();
-            foreach (var instruction in instructions)
-            {
-                switch (instruction)
-                {
-                    case 'M':
-                        commands.Add(new MoveCommand());
-                        break;
-                    case 'L':
-                        commands.Add(new TurnLeftCommand());
-                        break;
-                    case 'R':
-                        commands.Add(new TurnRightCommand());
-                        break;
-                }
-            }
+            instructions.ToList().ForEach(
+                i => commands.Add(ParseCommand(i)));
             return commands;
+        }
+
+        private static RoverCommand ParseCommand(char command)
+        {
+            switch (command)
+            {
+                case 'M':
+                    return new MoveCommand();
+                case 'L':
+                    return new TurnLeftCommand();
+                case 'R':
+                    return new TurnRightCommand();
+            }
+            return null;
         }
     }
 }
