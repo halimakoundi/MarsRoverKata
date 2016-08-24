@@ -6,7 +6,6 @@ namespace MarsRover.Src
 {
     public class Cardinality
     {
-        private string _value;
         private Cardinalities _cardinalities;
 
         public Cardinality(string value)
