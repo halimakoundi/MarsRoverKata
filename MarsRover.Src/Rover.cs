@@ -1,3 +1,5 @@
+using System.Linq;
+
 namespace MarsRover.Src
 {
     public class Rover
@@ -11,10 +13,7 @@ namespace MarsRover.Src
 
         public string Execute(RoverCommands commands)
         {
-            foreach (var command in commands)
-            {
-                command.ApplyTo(_position);
-            }
+            commands.ForEach(c => c.ApplyTo(_position));
             return _position.ToString();
         }
     }
