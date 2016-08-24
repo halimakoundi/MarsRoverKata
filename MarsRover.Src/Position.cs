@@ -65,11 +65,6 @@ namespace MarsRover.Src
 
         public void TurnLeft()
         {
-            TurnLeftFromPosition();
-        }
-
-        private void TurnLeftFromPosition()
-        {
             CardinalPosition.Left();
         }
 
@@ -79,4 +74,4 @@ namespace MarsRover.Src
 
         }
     }
-    }
+}
