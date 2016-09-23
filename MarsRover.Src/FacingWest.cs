@@ -6,5 +6,15 @@ namespace MarsRover.Src
         {
             position._xaxis -= 1;
         }
+
+        public IPosition TurnLeft()
+        {
+            return new FacingNorth();
+        }
+
+        public IPosition TurnRight()
+        {
+            return   new FacingSouth();
+        }
     }
 }
