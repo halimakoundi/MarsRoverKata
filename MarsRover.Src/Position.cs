@@ -4,7 +4,6 @@ namespace MarsRover.Src
     {
         public int _yaxis;
         public int _xaxis;
-        private CardinalPosition _cardinalPosition;
         public IPosition _position;
 
         public Position(string position)
@@ -16,7 +15,6 @@ namespace MarsRover.Src
 
         private void SetCardinalPosition(string[] positions)
         {
-            _cardinalPosition = new CardinalPosition(positions[2]);
             switch (positions[2])
             {
                 case "N":
@@ -53,13 +51,11 @@ namespace MarsRover.Src
 
         public void TurnLeft()
         {
-            _cardinalPosition.Left();
             _position = _position.TurnLeft();
         }
 
         public void TurnRight()
         {
-            _cardinalPosition.Right();
             _position = _position.TurnRight();
         }
 
