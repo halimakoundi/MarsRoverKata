@@ -11,7 +11,6 @@ namespace MarsRover.Src
             _yaxis = yaxis;
         }
         
-
         public void MoveUp()
         {
             _yaxis += 1;

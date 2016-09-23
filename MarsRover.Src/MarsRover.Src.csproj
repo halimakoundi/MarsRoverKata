@@ -49,7 +49,7 @@
     <Compile Include="FacingWest.cs" />
     <Compile Include="MoveCommand.cs" />
     <Compile Include="Plateau.cs" />
-    <Compile Include="Position.cs" />
+    <Compile Include="IPosition.cs" />
     <Compile Include="Rover.cs" />
     <Compile Include="IRoverCommand.cs" />
     <Compile Include="RoverCommands.cs" />

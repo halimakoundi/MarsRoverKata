@@ -2,9 +2,9 @@ namespace MarsRover.Src
 {
     public class MoveCommand : IRoverCommand
     {
-        public void ApplyTo(Position position)
+        public void ApplyTo(Rover rover)
         {
-            position.Move();
+            rover.Move();
         }
     }
 }

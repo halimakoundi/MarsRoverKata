@@ -16,9 +16,9 @@ namespace MarsRover.Src
             _commands.Add(command);
         }
 
-        public void ExecuteCommands(Position position)
+        public void ExecuteCommands(Rover rover)
         {
-            _commands.ForEach(c => c.ApplyTo(position));
+            _commands.ForEach(c => c.ApplyTo(rover));
         }
     }
 }

@@ -2,9 +2,9 @@ namespace MarsRover.Src
 {
     public class TurnRightCommand : IRoverCommand
     {
-        public void ApplyTo(Position position)
+        public void ApplyTo(Rover rover)
         {
-            position.TurnRight();
+            rover.TurnRight();
         }
     }
 }
