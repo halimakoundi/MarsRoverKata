@@ -42,6 +42,7 @@
   <ItemGroup>
     <Compile Include="Cardinality.cs" />
     <Compile Include="CommandParser.cs" />
+    <Compile Include="Coordinates.cs" />
     <Compile Include="FacingEast.cs" />
     <Compile Include="FacingNorth.cs" />
     <Compile Include="FacingSouth.cs" />

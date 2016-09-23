@@ -5,6 +5,7 @@ namespace MarsRover.Src
         public int _yaxis;
         public int _xaxis;
         public IPosition _position;
+        private Coordinates _coords;
 
         public Position(string position)
         {
@@ -18,16 +19,16 @@ namespace MarsRover.Src
             switch (positions[2])
             {
                 case "N":
-                    _position = new FacingNorth();
+                    _position = new FacingNorth(_coords);
                     break;
                 case "E":
-                    _position = new FacingEast();
+                    _position = new FacingEast(_coords);
                     break;
                 case "W":
-                    _position = new FacingWest();
+                    _position = new FacingWest(_coords);
                     break;
                 case "S":
-                    _position = new FacingSouth();
+                    _position = new FacingSouth(_coords);
                     break;
             }
         }
@@ -36,6 +37,7 @@ namespace MarsRover.Src
         {
             _xaxis = int.Parse(positions[0]);
             _yaxis = int.Parse(positions[1]);
+            _coords = new Coordinates(_xaxis, _yaxis);
         }
 
         private static string[] Parse(string position)
@@ -59,7 +61,7 @@ namespace MarsRover.Src
             _position = _position.TurnRight();
         }
 
-        public override string ToString() => $"{_xaxis} {_yaxis} {_position.CardinalPosition}";
+        public override string ToString() => $"{_position.Coords.Display()} {_position.CardinalPosition}";
     }
 
     public interface IPosition
@@ -68,5 +70,6 @@ namespace MarsRover.Src
         IPosition TurnLeft();
         IPosition TurnRight();
         string CardinalPosition { get; }
+        Coordinates Coords { get; }
     }
 }
