@@ -17,18 +17,18 @@ namespace MarsRover.Src
         private void SetCardinalPosition(string[] positions)
         {
             _cardinalPosition = new CardinalPosition(positions[2]);
-            switch (_cardinalPosition.GetValue())
+            switch (positions[2])
             {
-                case Cardinality.N:
+                case "N":
                     _position = new FacingNorth();
                     break;
-                case Cardinality.E:
+                case "E":
                     _position = new FacingEast();
                     break;
-                case Cardinality.W:
+                case "W":
                     _position = new FacingWest();
                     break;
-                case Cardinality.S:
+                case "S":
                     _position = new FacingSouth();
                     break;
             }
@@ -63,7 +63,7 @@ namespace MarsRover.Src
             _position = _position.TurnRight();
         }
 
-        public override string ToString() => $"{_xaxis} {_yaxis} {_cardinalPosition}";
+        public override string ToString() => $"{_xaxis} {_yaxis} {_position.CardinalPosition}";
     }
 
     public interface IPosition
@@ -71,5 +71,6 @@ namespace MarsRover.Src
         void Move(Position position);
         IPosition TurnLeft();
         IPosition TurnRight();
+        string CardinalPosition { get; }
     }
 }

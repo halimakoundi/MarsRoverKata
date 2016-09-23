@@ -9,12 +9,14 @@ namespace MarsRover.Src
 
         public IPosition TurnLeft()
         {
-            return new FacingNorth();
+            return new FacingSouth();
         }
 
         public IPosition TurnRight()
         {
-            return   new FacingSouth();
+            return   new FacingNorth();
         }
+
+        public string CardinalPosition { get; } = "W";
     }
 }
