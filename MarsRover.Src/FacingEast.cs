@@ -9,9 +9,8 @@ namespace MarsRover.Src
             Coords = coords;
         }
 
-        public void Move(Position position)
+        public void Move()
         {
-            position._xaxis += 1;
             Coords.MoveForward();
         }
 

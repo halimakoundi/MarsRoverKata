@@ -35,9 +35,7 @@ namespace MarsRover.Src
 
         private void SetAxis(string[] positions)
         {
-            _xaxis = int.Parse(positions[0]);
-            _yaxis = int.Parse(positions[1]);
-            _coords = new Coordinates(_xaxis, _yaxis);
+            _coords = new Coordinates(int.Parse(positions[0]), int.Parse(positions[1]));
         }
 
         private static string[] Parse(string position)
@@ -48,7 +46,7 @@ namespace MarsRover.Src
 
         public void Move()
         {
-            _position.Move(this);
+            _position.Move();
         }
 
         public void TurnLeft()
@@ -66,7 +64,7 @@ namespace MarsRover.Src
 
     public interface IPosition
     {
-        void Move(Position position);
+        void Move();
         IPosition TurnLeft();
         IPosition TurnRight();
         string CardinalPosition { get; }
