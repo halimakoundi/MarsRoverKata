@@ -1,6 +1,7 @@
 using System.Linq;
+using MarsRover.Src.Comands;
 
-namespace MarsRover.Src
+namespace MarsRover.Src.Parser
 {
     public class CommandParser
     {

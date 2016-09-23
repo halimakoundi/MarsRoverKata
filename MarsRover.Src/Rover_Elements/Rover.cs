@@ -1,4 +1,7 @@
-namespace MarsRover.Src
+using MarsRover.Src.Comands;
+using MarsRover.Src.RoverStates;
+
+namespace MarsRover.Src.Rover_Elements
 {
     public class Rover
     {

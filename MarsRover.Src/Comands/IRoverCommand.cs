@@ -1,4 +1,6 @@
-namespace MarsRover.Src
+using MarsRover.Src.Rover_Elements;
+
+namespace MarsRover.Src.Comands
 {
     public interface IRoverCommand
     {

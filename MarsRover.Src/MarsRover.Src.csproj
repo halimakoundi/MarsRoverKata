@@ -40,26 +40,26 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Cardinality.cs" />
-    <Compile Include="CommandParser.cs" />
-    <Compile Include="Coordinates.cs" />
-    <Compile Include="FacingEast.cs" />
-    <Compile Include="FacingNorth.cs" />
-    <Compile Include="FacingSouth.cs" />
-    <Compile Include="FacingWest.cs" />
-    <Compile Include="MoveCommand.cs" />
-    <Compile Include="Plateau.cs" />
-    <Compile Include="IPosition.cs" />
-    <Compile Include="Rover.cs" />
-    <Compile Include="IRoverCommand.cs" />
-    <Compile Include="RoverCommands.cs" />
+    <Compile Include="Parser\CommandParser.cs" />
+    <Compile Include="Rover_Elements\Coordinates.cs" />
+    <Compile Include="RoverStates\FacingEast.cs" />
+    <Compile Include="RoverStates\FacingNorth.cs" />
+    <Compile Include="RoverStates\FacingSouth.cs" />
+    <Compile Include="RoverStates\FacingWest.cs" />
+    <Compile Include="Comands\MoveCommand.cs" />
+    <Compile Include="Rover_Elements\Plateau.cs" />
+    <Compile Include="RoverStates\IPosition.cs" />
+    <Compile Include="Rover_Elements\Rover.cs" />
+    <Compile Include="Comands\IRoverCommand.cs" />
+    <Compile Include="Comands\RoverCommands.cs" />
     <Compile Include="RoverControlSystem.cs" />
-    <Compile Include="RoverFactory.cs" />
+    <Compile Include="Rover_Elements\RoverFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TurnLeftCommand.cs" />
-    <Compile Include="TurnRightCommand.cs" />
+    <Compile Include="Comands\TurnLeftCommand.cs" />
+    <Compile Include="Comands\TurnRightCommand.cs" />
     <Compile Include="UIPrinter.cs" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

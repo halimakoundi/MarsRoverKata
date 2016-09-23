@@ -1,4 +1,6 @@
 ﻿using MarsRover.Src;
+using MarsRover.Src.Parser;
+using MarsRover.Src.Rover_Elements;
 using NSubstitute;
 using NUnit.Framework;
 
