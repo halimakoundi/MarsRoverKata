@@ -2,8 +2,6 @@ namespace MarsRover.Src
 {
     public class Position
     {
-        public int _yaxis;
-        public int _xaxis;
         public IPosition _position;
         private Coordinates _coords;
 
