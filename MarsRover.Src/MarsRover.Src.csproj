@@ -41,7 +41,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Cardinality.cs" />
-    <Compile Include="CardinalPosition.cs" />
     <Compile Include="CommandParser.cs" />
     <Compile Include="FacingEast.cs" />
     <Compile Include="FacingNorth.cs" />

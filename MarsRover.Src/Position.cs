@@ -10,10 +10,10 @@ namespace MarsRover.Src
         {
             var positions = Parse(position);
             SetAxis(positions);
-            SetCardinalPosition(positions);
+            SetInitialCardinalPosition(positions);
         }
 
-        private void SetCardinalPosition(string[] positions)
+        private void SetInitialCardinalPosition(string[] positions)
         {
             switch (positions[2])
             {
