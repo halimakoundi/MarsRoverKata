@@ -2,8 +2,8 @@ namespace MarsRover.Src
 {
     public class Position
     {
-        private int _yaxis;
-        private int _xaxis;
+        public int _yaxis;
+        public int _xaxis;
         private CardinalPosition _cardinalPosition;
 
         public Position(string position)
@@ -32,21 +32,23 @@ namespace MarsRover.Src
 
         public void Move()
         {
+            IPosition position = null;
             switch (_cardinalPosition.GetValue())
             {
                 case Cardinality.N:
-                    MoveUp();
+                    position = new FacingNorth();
                     break;
                 case Cardinality.E:
-                    MoveRight();
+                    position = new FacingEast();
                     break;
                 case Cardinality.W:
-                    MoveLeft();
+                    position = new FacingWest();
                     break;
                 case Cardinality.S:
-                    MoveDown();
+                    position = new FacingSouth();
                     break;
             }
+            position.Move(this);
         }
 
         public void TurnLeft()
@@ -61,25 +63,10 @@ namespace MarsRover.Src
         }
 
         public override string ToString() => $"{_xaxis} {_yaxis} {_cardinalPosition}";
+    }
 
-        private void MoveDown()
-        {
-            _yaxis -= 1;
-        }
-
-        private void MoveLeft()
-        {
-            _xaxis -= 1;
-        }
-
-        private void MoveRight()
-        {
-            _xaxis += 1;
-        }
-
-        private void MoveUp()
-        {
-            _yaxis += 1;
-        }
+    public interface IPosition
+    {
+        void Move(Position position);
     }
 }

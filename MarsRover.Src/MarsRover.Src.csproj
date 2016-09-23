@@ -43,6 +43,10 @@
     <Compile Include="Cardinality.cs" />
     <Compile Include="CardinalPosition.cs" />
     <Compile Include="CommandParser.cs" />
+    <Compile Include="FacingEast.cs" />
+    <Compile Include="FacingNorth.cs" />
+    <Compile Include="FacingSouth.cs" />
+    <Compile Include="FacingWest.cs" />
     <Compile Include="MoveCommand.cs" />
     <Compile Include="Plateau.cs" />
     <Compile Include="Position.cs" />
