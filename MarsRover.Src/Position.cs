@@ -48,21 +48,6 @@ namespace MarsRover.Src
 
         public void Move()
         {
-            switch (_cardinalPosition.GetValue())
-            {
-                case Cardinality.N:
-                    _position = new FacingNorth();
-                    break;
-                case Cardinality.E:
-                    _position = new FacingEast();
-                    break;
-                case Cardinality.W:
-                    _position = new FacingWest();
-                    break;
-                case Cardinality.S:
-                    _position = new FacingSouth();
-                    break;
-            }
             _position.Move(this);
         }
 
